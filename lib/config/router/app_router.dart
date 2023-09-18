@@ -5,7 +5,6 @@ class AppRouter{
 
   static const String loginRoute = '/login';
   static const String onBoardingRoute = '/onboarding';
-
   static Route<dynamic> generateRoute(RouteSettings settings){
     switch(settings.name){
       case onBoardingRoute:
