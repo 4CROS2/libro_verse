@@ -48,7 +48,7 @@ class _NextButton extends StatelessWidget {
 
     return ElevatedButton(
       onPressed: (){
-        onBoardingProvider.currentPage = onBoardingProvider.getCurrentPage + 1;
+         onBoardingProvider.updateCurrentPage(onBoardingProvider.getCurrentPage + 1);
       },
       style: ButtonStyle(
         elevation: MaterialStateProperty.all(5),
@@ -71,7 +71,7 @@ class _OnBoardingPages extends StatelessWidget {
     return PageView(
       controller: onBoardingProvider.pageController,
       onPageChanged: (int index) {
-        onBoardingProvider.currentPage = index;
+         onBoardingProvider.updateCurrentPage(index);
       } ,
       children: [
         PageViewContent(
