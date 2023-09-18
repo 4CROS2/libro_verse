@@ -12,20 +12,14 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  late PageController _pageController = PageController();
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _pageController = PageController();
-  }
+  late PageController pageController = PageController();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
         body: Stack(
       children: [
-        OnBoardingPages(pageController: _pageController,),
+        OnBoardingPages(pageController: pageController,),
         Align(
           alignment: Alignment.bottomCenter,
           child: _Dots(size: size),
@@ -36,7 +30,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             margin: EdgeInsets.only(bottom: size.height * 0.03),
             width: 200,
             height: 65,
-            child: NextButton(pageController: _pageController,),
+            child: NextButton(pageController: pageController,),
           ),
         )
       ],
