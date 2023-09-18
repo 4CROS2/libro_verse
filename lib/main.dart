@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:libro_verse/config/router/app_router.dart';
-
-void main() {
-  runApp(const MyApp());
-}
+import 'package:libro_verse/src/UI/screens/providers/onboarding_provider.dart';
+import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => OnboardingProvider()..init()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        initialRoute: AppRouter.onBoardingRoute,
+        onGenerateRoute: AppRouter.generateRoute,
       ),
-      initialRoute: AppRouter.onBoardingRoute,
-      onGenerateRoute: AppRouter.generateRoute,
     );
   }
 }
-
