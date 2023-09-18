@@ -36,7 +36,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             margin: EdgeInsets.only(bottom: size.height * 0.03),
             width: 200,
             height: 65,
-            child: NextButton(pageController: _pageController,),
+            child: _NextButton(pageController: _pageController,),
           ),
         )
       ],
@@ -44,8 +44,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   }
 }
 
-class NextButton extends StatelessWidget {
-   NextButton({
+class _NextButton extends StatelessWidget {
+   _NextButton({
     required this.pageController,
   });
 
@@ -88,8 +88,7 @@ class OnBoardingPages extends StatelessWidget {
         return PageView(
           controller: pageController,
           onPageChanged: (int index) {
-            Provider.of<OnboardingProvider>(context, listen: false)
-                .updateCurrentPage(index);
+            onBoardingProvider.updateCurrentPage(index);
           },
           children: [
             PageViewContent(
